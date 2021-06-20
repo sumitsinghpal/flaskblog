@@ -1,0 +1,2 @@
+# flaskblog
+simple flask project
