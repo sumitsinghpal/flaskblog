@@ -1,14 +1,27 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+posts= [
+    {
+        'save':'green',
+        'hello':'world',
+        'good':'morning'
+    },{
+        'save' :'trees',
+        'hello':'hii',
+        'good':'boy'
+    }
+    ]
 
-@app.route("/1")
-def hel():
-    return "<p>Hello, World!??</p>"
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template('home.html',posts=posts)
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 
 if __name__=='__main__':
